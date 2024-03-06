@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Earning Potential Calculator</title>
+    <!-- Add Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font awesom icons  -->
+    <script src="https://kit.fontawesome.com/dd295e57ab.js" crossorigin="anonymous"></script>
+  </head>
+  <style>
+    #slider {
+      top: 1.6px;
+      left: 3px;
+    }
+    .play-icon{
+     margin-top: 2px;
+    }
+    .calculate{
+     background-color: #ECF956;
+    }
+  </style>
+
+  <body>
+    <!-- Your HTML content here -->
+    <div class="flex justify-center items-center bg-slate-50 h-screen">
+      <div class="max-w-2xl border m-3  rounded w-auto border-slate-500 px-4 pt-5">
+        <!-- header line  -->
+        <div>
+          <p class="text-center text-xl p-0 text-amber-950 font-semibold">
+            Calculate the earning potential of your
+            <span id="socialMedia"
+              ><select
+                id="socialMediaSelect"
+                class="rounded-3xl text-center border text-base"
+              >
+                <option value="youtube">YouTube</option>
+                <option value="tiktok">TikTok</option>
+                <option value="instagram">Instagram</option>
+              </select></span
+            >
+            account
+          </p>
+        </div>
+        <!-- entry button line  -->
+        <div class="flex justify-center items-center mt-2">
+          <span class="font-bold text-amber-950">Manual Entry</span>
+          <span class="mx-3">
+            <input type="radio" id="toggle1" class="hidden" name="toggle" />
+            <input type="radio" id="toggle2" class="hidden" name="toggle" />
+            <label
+              for="toggle"
+              class="flex items-center cursor-pointer"
+              onclick="toggleButton()"
+            >
+              <!-- Visible toggle button -->
+              <div class="bg-gray-400 w-9 h-5 rounded-full relative">
+                <!-- Slider -->
+                <div
+                  id="slider"
+                  class="absolute bg-white w-4 h-4 rounded-full shadow-md transform transition-transform duration-300"
+                ></div>
+              </div>
+            </label>
+          </span>
+          <span class="text-sm text-slate-400">Account Analysis</span>
+        </div>
+         <!-- provide metric h2  -->
+         <div class="mt-2">
+          <h2 class="text-slate-500 text-lg">Provide the following account metrics: </h2>
+         </div>
+         <!-- 3 column  -->
+         <div class="mt-2 flex flex-wrap justify-center md:flex-row">
+          <!-- total videos  -->
+          <div class="flex flex-col w-40  mx-2">
+           <div class="flex items-center ">
+
+          
+           <span class="mr-1 mt-1  "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" class="w-5  ">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+          </svg>
+          </span>
+           <h3 class="text-amber-950 font-bold ">Total Videos </h3>
+           <span  class="ml-1 mt-1  ">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class="w-5 ">
+             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+           </svg>
+           
+           </span>
+          </div>
+          <div class="mt-1">
+           <input type="text" name="total-video"   id="total-video"
+           class="border-amber-950 border  rounded-3xl p-1  w-full"
+           >
+          </div>
+          </div>
+          <!-- Followers  -->
+          <div class="flex flex-col w-40 mx-2">
+           <div class="flex items-center ">
+
+          
+           <span class="mr-1 mt-1  "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" class="w-5  ">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+          </svg>
+          </span>
+           <h3 class="text-amber-950 font-bold ">Total Videos </h3>
+           <span  class="ml-1 mt-1  ">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class="w-5 ">
+             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+           </svg>
+           
+           </span>
+          </div>
+          <div class="mt-1">
+           <input type="text" name="total-video"   id="total-video"
+           class="border-amber-950 border  rounded-3xl p-1 w-full"
+           >
+          </div>
+          </div>
+          <!-- Total Views  -->
+          <div class="flex flex-col w-40 mx-2">
+           <div class="flex items-center ">
+
+          
+           <span class="mr-1 mt-1  "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" class="w-5  ">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+          </svg>
+          </span>
+           <h3 class="text-amber-950 font-bold ">Total Videos </h3>
+           <span  class="ml-1 mt-1  ">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class="w-5 ">
+             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+           </svg>
+           
+           </span>
+          </div>
+          <div class="mt-1">
+           <input type="text" name="total-video"   id="total-video"
+           class="border-amber-950 border rounded-3xl p-1 w-full"
+           >
+          </div>
+          </div>
+         </div>
+         <div class="mt-3 mb-3">
+          <button class=" font-bold w-full rounded-3xl py-2 calculate ">
+           Calculate
+          </button>
+         </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function toggleButton() {
+      var checkbox = document.getElementById("toggle1");
+      var checkbox2 = document.getElementById("toggle2");
+
+      var slider = document.getElementById("slider");
+      var toggleText = document.getElementById("toggleText");
+      console.log(checkbox.checked);
+
+      if (!checkbox.checked) {
+        console.log(toggleText);
+        checkbox.checked = true;
+        slider.style.transform = "translateX(100%)";
+        slider.parentNode.classList.remove("bg-gray-400");
+        slider.parentNode.classList.add("bg-green-400");
+      } else {
+        checkbox2.checked = true;
+        slider.style.transform = "translateX(0)";
+        slider.parentNode.classList.remove("bg-green-400");
+        slider.parentNode.classList.add("bg-gray-400");
+      }
+    }
+  </script>
+</html>

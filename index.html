@@ -12,7 +12,7 @@
   <script src="https://kit.fontawesome.com/dd295e57ab.js" crossorigin="anonymous"></script>
 </head>
 <style>
-  #slider {
+  .slider_layout {
     top: 1.6px;
     left: 3px;
   }
@@ -22,41 +22,44 @@
   }
 
   .calculate {
-    background-color: #ECF956;
+    background-color: #ecf956;
   }
+
   .calculate:hover {
     background-color: #e1ef4c;
   }
 
   .program {
-    background-color: #B1DCFC;
+    background-color: #b1dcfc;
+    width: 19rem;
 
     height: 150px;
   }
 
   .deals {
-    background-color: #E3C6E4;
+    background-color: #e3c6e4;
 
     height: 150px;
   }
 
   .col-f-l {
-    background-color: #C6E57D;
+    background-color: #c6e57d;
   }
 </style>
 
 <body>
-  <!-- Your HTML content here -->
-  <div class="flex justify-center items-center bg-slate-50 ">
-    <div class="max-w-2xl border m-3  rounded w-auto border-slate-500 px-4 pt-5">
+  <div class="flex justify-center items-center flex-col bg-slate-50">
+    <!-- Layout 1  -->
+    <div class="max-w-2xl border m-3 rounded w-auto border-slate-500 px-4 pt-5">
       <!-- header line  -->
       <div>
         <p class="text-center text-xl p-0 text-amber-950 font-semibold">
           Calculate the earning potential of your
-          <span id="socialMedia"><select id="socialMediaSelect" class="rounded-3xl text-center border text-base">
-              <option value="youtube">YouTube</option>
-              <option value="tiktok">TikTok</option>
-              <option value="instagram">Instagram</option>
+          <span id="socialMedia"><select id="socialMediaSelect"
+              class="rounded-3xl text-center border text-base text-amber-950  font-bold">
+               <option class="text-amber-950"   value="tiktok">TikTok</option>
+               <option class="text-amber-950"   value="youtube">YouTube</option>
+               <option class="text-amber-950" value="instagram">Instagram</option>
             </select></span>
           account
         </p>
@@ -65,14 +68,15 @@
       <div class="flex justify-center items-center mt-2">
         <span class="font-bold text-amber-950">Manual Entry</span>
         <span class="mx-3">
-          <input type="radio" id="toggle1" class="hidden" name="toggle" />
-          <input type="radio" id="toggle2" class="hidden" name="toggle" />
-          <label for="toggle" class="flex items-center cursor-pointer" onclick="toggleButton()">
+          <input type="radio" id="toggle1" class="hidden" name="toggle1" />
+          <input type="radio" id="toggle2" class="hidden" name="toggle2" />
+          <label for="toggle_layout1" class="flex items-center cursor-pointer"
+            onclick="toggleButton('toggle1', 'toggle2','slider1')">
             <!-- Visible toggle button -->
             <div class="bg-gray-300 w-9 h-5 rounded-full relative">
               <!-- Slider -->
-              <div id="slider"
-                class="absolute bg-amber-950 w-4 h-4 rounded-full shadow-md transform transition-transform duration-300">
+              <div id="slider1"
+                class="absolute slider_layout bg-amber-950 w-4 h-4 rounded-full shadow-md transform transition-transform duration-300">
               </div>
             </div>
           </label>
@@ -81,162 +85,960 @@
       </div>
       <!-- provide metric h2  -->
       <div class="mt-2">
-        <h2 class="text-slate-500 text-lg">Provide the following account metrics: </h2>
+        <h2 class="text-amber-950 text-lg font-serif">
+          Provide the following account metrics:
+        </h2>
       </div>
       <!-- 3 column  -->
-      <div class="mt-2 flex flex-wrap justify-center  min-[670px]:justify-between md:flex-row">
+      <div class="mt-2 flex flex-wrap justify-center min-[670px]:justify-between md:flex-row">
         <!-- total videos  -->
         <div class="flex flex-col min-[470px]:w-auto w-full mt-1 mx-2">
-          <div class="flex items-center ">
-
-
-            <span class="mr-1 mt-1  "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                strokeWidth={1} stroke="currentColor" class="w-5  ">
+          <div class="flex items-center">
+            <span class="mr-1 mt-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                strokeWidth="{1}" stroke="currentColor"class="w-5 text-amber-950">
                 <path strokeLinecap="round" strokeLinejoin="round"
                   d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
               </svg>
             </span>
-            <h3 class="text-amber-950 font-bold ">Total Videos </h3>
-            <span class="ml-1 mt-1  ">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-                stroke="currentColor" class="w-5 ">
+            <h3 class="text-amber-950 font-bold">Total Videos</h3>
+            <span class="ml-1 mt-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="{1.5}"
+                stroke="currentColor"class="w-5 text-amber-950">
                 <path strokeLinecap="round" strokeLinejoin="round"
                   d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
               </svg>
-
             </span>
           </div>
           <div class="mt-1">
             <input type="text" name="total-video" id="total-video"
-              class="border-amber-950 border  rounded-3xl p-1  w-full">
+              class="border-amber-950 border rounded-3xl p-1 w-full" />
           </div>
         </div>
         <!-- Followers  -->
-        <div class="flex flex-col min-[470px]:w-auto w-full mt-1  mx-2">
-          <div class="flex items-center ">
-
-
-            <span class="mr-1 mt-1  "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class="w-5 ">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
-            </svg>
-            
+        <div class="flex flex-col min-[470px]:w-auto w-full mt-1 mx-2">
+          <div class="flex items-center">
+            <span class="mr-1 mt-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                strokeWidth="{1.5}" stroke="currentColor"class="w-5 text-amber-950">
+                <path strokeLinecap="round" strokeLinejoin="round"
+                  d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+              </svg>
             </span>
-            <h3 class="text-amber-950 font-bold ">Followers </h3>
-            <span class="ml-1 mt-1  ">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-                stroke="currentColor" class="w-5 ">
+            <h3 class="text-amber-950 font-bold">Followers</h3>
+            <span class="ml-1 mt-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="{1.5}"
+                stroke="currentColor"class="w-5 text-amber-950">
                 <path strokeLinecap="round" strokeLinejoin="round"
                   d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
               </svg>
-
             </span>
           </div>
           <div class="mt-1">
-            <input type="text" name="total-video" id="total-video"
-              class="border-amber-950 border  rounded-3xl p-1 w-full">
+            <input type="text" name="followers" id="followers" class="border-amber-950 border rounded-3xl p-1 w-full" />
           </div>
         </div>
         <!-- Total Views  -->
         <div class="flex flex-col min-[470px]:w-auto w-full mt-1 mx-2">
-          <div class="flex items-center ">
-
-
-            <span class="mr-1 mt-1  "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class="w-5 ">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-            </svg>
-            
+          <div class="flex items-center">
+            <span class="mr-1 mt-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                strokeWidth="{1.5}" stroke="currentColor"class="w-5 text-amber-950">
+                <path strokeLinecap="round" strokeLinejoin="round"
+                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+              </svg>
             </span>
-            <h3 class="text-amber-950 font-bold ">Total Likes </h3>
-            <span class="ml-1 mt-1  ">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-                stroke="currentColor" class="w-5 ">
+            <h3 class="text-amber-950 font-bold">Total Likes</h3>
+            <span class="ml-1 mt-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="{1.5}"
+                stroke="currentColor"class="w-5 text-amber-950">
                 <path strokeLinecap="round" strokeLinejoin="round"
                   d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
               </svg>
-
             </span>
           </div>
           <div class="mt-1">
-            <input type="text" name="total-video" id="total-video"
-              class="border-amber-950 border rounded-3xl p-1 w-full">
+            <input type="text" name="total-like" id="total-like"
+              class="border-amber-950 border rounded-3xl p-1 w-full" />
           </div>
         </div>
       </div>
       <!-- calculate button  -->
       <div class="mt-3 mb-3">
-        <button class=" font-bold w-full rounded-3xl py-2 calculate border border-slate-900 ">
+        <button class="font-bold w-full rounded-3xl py-2 calculate border border-slate-900">
           Calculate
         </button>
       </div>
       <!-- sub heading 2 -->
       <div class="mt-2">
-        <h2 class="text-slate-500 text-lg">Estimated Revenue Potential by Source: </h2>
+         <h2 class="text-amber-950 text-lg font-serif">
+          Estimated Revenue Potential by Source:
+        </h2>
       </div>
       <!-- 2 box  -->
-      <div class="flex   justify-center flex-wrap  items-center">
-        <div class="rounded-3xl program justify-around items-center flex flex-col py-3 min-[674px]:w-72 w-full mx-1 my-2  ">
-          <h4 class="font-bold text-amber-950 ">Creativity Program Earnings</h4>
-          <h4 class="font-bold text-2xl text-amber-950">$3,859</h4>
+      <div class="flex justify-between flex-wrap items-center">
+        <div
+          class="rounded-3xl program justify-around items-center flex flex-col py-3 min-[674px]:w-72 w-full mx-1 my-2">
+          <h4 class="font-bold text-amber-950">
+            CREATIVITY PROGRAM EARNINGS
+          </h4>
+          <h4 class="font-bold text-2xl text-center text-amber-950">$3,859</h4>
           <h4 class="text-amber-950 font-semibold">Average per video</h4>
         </div>
-        <div class="rounded-3xl deals justify-around items-center flex flex-col mx-2 py-3  min-[674px]:w-72 w-full my-2">
-          <h4 class="font-bold text-amber-950 ">Sponsorship/Brand Deals</h4>
-          <h4 class="font-bold text-2xl text-amber-950">$17,096 - $11,397</h4>
+        <div class="rounded-3xl deals justify-around items-center flex flex-col py-3 min-[674px]:w-72 w-full mx-1 my-2">
+          <h4 class="font-bold text-amber-950">SPONSORSHIP/BRAND DEALS</h4>
+          <h4 class="font-bold text-2xl text-center text-amber-950">$17,096 - $11,397</h4>
           <h4 class="text-amber-950 font-semibold">Average per video</h4>
         </div>
-
       </div>
       <!-- last row  -->
-      <div class="bg-slate-100   flex justify-center md:flex-row flex-wrap ">
+      <div class="bg-slate-100 w-auto rounded-3xl pr-0 min-[674px]:pr-4 mb-4 flex justify-between md:flex-row flex-wrap">
         <!-- first col  -->
-        <div class=" col-f-l border min-[674px]:w-72 w-full rounded-3xl mx-3 h-72 flex flex-col justify-evenly items-center">
-          <h4 class="font-bold text-amber-950 ">Digital Product Sales</h4>
+        <div
+          class="col-f-l border min-[674px]:w-72 w-full rounded-3xl mr-0 min-[674px]:mr-3 h-72 flex flex-col justify-evenly items-center">
+          <h4 class="font-bold text-amber-950">Digital Product Sales</h4>
           <div>
-            <h4 class="font-bold text-2xl text-amber-950">$17,096 - $11,397</h4>
-            <h4 class="text-amber-950 font-semibold text-center">Average per video</h4>
+            <h4 class="font-bold text-2xl text-center text-amber-950">
+              $17,096 - $11,397
+            </h4>
+            <h4 class="text-amber-950 font-semibold text-center">
+              Average per video
+            </h4>
           </div>
           <div class="flex justify-center items-center">
             <a href="https://accounts.theleap.co/signup" class="text-amber-950 text-center hover:text-amber-900">
               <span class="mr-1 border-b border-amber-950 hover:border-amber-900 font-semibold">
-                Try The Leap to create your digital product <i class="fas fa-arrow-right"></i>
+                Try The Leap to create your digital product
+                <i class="fas fa-arrow-right"></i>
               </span>
-
             </a>
           </div>
-
         </div>
         <!-- last 2nd column  -->
-        <div class="  min-[674px]:w-72 rounded-3xlmx-3 h-72 pt-3 flex flex-col justify-evenly items-center w-full">
+        <div class="min-[674px]:w-72 rounded-3xlmx-3 h-72 pt-3 flex flex-col justify-evenly items-center w-full">
           <div>
             <h3 class="font-bold text-amber-950 sm:px-0 px-2">
               Why selling digital products is a game changer for creators:
             </h3>
           </div>
-          <div >
-            <p class=" text-amber-950"> 💰︎ Passive income stream</p>
-            <p class=" text-amber-950">😌 Low-effort and low-cost production</p>
-            <p class=" text-amber-950">📲 No shipping logistics required</p>
-            <p class=" text-amber-950">📶 Simple scalability</p>
-            <p class=" text-amber-950">🌍 Global sales</p>
+          <div>
+            <p class="text-amber-950">💰︎ Passive income stream</p>
+            <p class="text-amber-950">
+              😌 Low-effort and low-cost production
+            </p>
+            <p class="text-amber-950">📲 No shipping logistics required</p>
+            <p class="text-amber-950">📶 Simple scalability</p>
+            <p class="text-amber-950">🌍 Global sales</p>
           </div>
-       
-            <div class="mt-3 mb-3 w-full  px-3">
-              <button class=" font-bold w-full rounded-3xl py-2 calculate border border-slate-900 ">
-                Learn More
-              </button>
-      
-        </div>
 
-        <div></div>
+          <div class="mt-3 mb-3 w-full px-3">
+            <button class="font-bold w-full rounded-3xl py-2 calculate border border-slate-900">
+              Learn More
+            </button>
+          </div>
+        </div>
       </div>
     </div>
+
+
+<h1>Layout 2 </h1>
+
+   
+    <!-- Layout 2 -->
+      <div class="max-w-2xl border m-3 rounded w-auto border-slate-500 px-4 pt-5">
+      <!-- header line  -->
+      <div>
+        <p class="text-center text-xl p-0 text-amber-950 font-semibold">
+          Calculate the earning potential of your
+          <span id="socialMedia"><select id="socialMediaSelect"
+              class="rounded-3xl text-center border text-base text-amber-950 font-bold">
+               <option class="text-amber-950" value="youtube">YouTube</option>
+               <option class="text-amber-950" value="tiktok">TikTok</option>
+               <option class="text-amber-950" value="instagram">Instagram</option>
+            </select></span>
+          account
+        </p>
+      </div>
+      <!-- entry button line  -->
+      <div class="flex justify-center items-center mt-2">
+        <span class="font-bold text-amber-950">Manual Entry</span>
+        <span class="mx-3">
+          <input type="radio" id="toggle3" class="hidden" name="toggle3" />
+          <input type="radio" id="toggle4" class="hidden" name="toggle4" />
+          <label for="toggle_layout1" class="flex items-center cursor-pointer"
+            onclick="toggleButton('toggle3', 'toggle4','slider3')">
+            <!-- Visible toggle button -->
+            <div class="bg-gray-300 w-9 h-5 rounded-full relative">
+              <!-- Slider -->
+              <div id="slider3"
+                class="absolute slider_layout bg-amber-950 w-4 h-4 rounded-full shadow-md transform transition-transform duration-300">
+              </div>
+            </div>
+          </label>
+        </span>
+        <span class="text-sm text-slate-400">Account Analysis</span>
+      </div>
+      <!-- provide metric h2  -->
+      <div class="mt-2">
+        <h2 class="text-amber-950 text-lg font-serif">
+          Provide the following account metrics:
+        </h2>
+      </div>
+      <!-- 3 column  -->
+      <div class="mt-2 flex flex-wrap justify-center min-[670px]:justify-between md:flex-row">
+        <!-- total videos  -->
+        <div class="flex flex-col min-[470px]:w-auto w-full mt-1 mx-2">
+          <div class="flex items-center">
+            <span class="mr-1 mt-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                strokeWidth="{1}" stroke="currentColor"class="w-5 text-amber-950">
+                <path strokeLinecap="round" strokeLinejoin="round"
+                  d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+              </svg>
+            </span>
+            <h3 class="text-amber-950 font-bold">Total Videos</h3>
+            <span class="ml-1 mt-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="{1.5}"
+                stroke="currentColor"class="w-5 text-amber-950">
+                <path strokeLinecap="round" strokeLinejoin="round"
+                  d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+              </svg>
+            </span>
+          </div>
+          <div class="mt-1">
+            <input type="text" name="total-video" id="total-video"
+              class="border-amber-950 border rounded-3xl p-1 w-full" />
+          </div>
+        </div>
+        <!-- Followers  -->
+        <div class="flex flex-col min-[470px]:w-auto w-full mt-1 mx-2">
+          <div class="flex items-center">
+            <span class="mr-1 mt-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                strokeWidth="{1.5}" stroke="currentColor"class="w-5 text-amber-950">
+                <path strokeLinecap="round" strokeLinejoin="round"
+                  d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+              </svg>
+            </span>
+            <h3 class="text-amber-950 font-bold">Followers</h3>
+            <span class="ml-1 mt-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="{1.5}"
+                stroke="currentColor"class="w-5 text-amber-950">
+                <path strokeLinecap="round" strokeLinejoin="round"
+                  d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+              </svg>
+            </span>
+          </div>
+          <div class="mt-1">
+            <input type="text" name="followers" id="followers" class="border-amber-950 border rounded-3xl p-1 w-full" />
+          </div>
+        </div>
+        <!-- Total Views  -->
+        <div class="flex flex-col min-[470px]:w-auto w-full mt-1 mx-2">
+          <div class="flex items-center">
+            <span class="mr-1 mt-1"> 
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class="w-5 text-amber-950">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+              </svg>
+              
+            </span>
+            <h3 class="text-amber-950 font-bold">Total Views</h3>
+            <span class="ml-1 mt-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="{1.5}"
+                stroke="currentColor"class="w-5 text-amber-950">
+                <path strokeLinecap="round" strokeLinejoin="round"
+                  d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+              </svg>
+            </span>
+          </div>
+          <div class="mt-1">
+            <input type="text" name="total-like" id="total-like"
+              class="border-amber-950 border rounded-3xl p-1 w-full" />
+          </div>
+        </div>
+      </div>
+      <!-- calculate button  -->
+      <div class="mt-3 mb-3">
+        <button class="font-bold w-full rounded-3xl py-2 calculate border border-slate-900">
+          Calculate
+        </button>
+      </div>
+      <!-- sub heading 2 -->
+      <div class="mt-2">
+         <h2 class="text-amber-950 text-lg font-serif">
+          Estimated Revenue Potential by Source:
+        </h2>
+      </div>
+      <!-- 2 box  -->
+      <div class="flex justify-between flex-wrap items-center">
+        <div
+          class="rounded-3xl program justify-around items-center flex flex-col py-3 min-[674px]:w-72 w-full mx-1 my-2">
+          <h4 class="font-bold text-amber-950">
+            YOUTUBE AD REVENUE
+          </h4>
+          <h4 class="font-bold text-2xl text-center text-amber-950">$3,859-$3,034</h4>
+          <h4 class="text-amber-950 font-semibold">Average per video</h4>
+        </div>
+        <div class="rounded-3xl deals justify-around items-center flex flex-col py-3 min-[674px]:w-72 w-full mx-1 my-2">
+          <h4 class="font-bold text-amber-950">SPONSORSHIP/BRAND DEALS</h4>
+          <h4 class="font-bold text-2xl text-center text-amber-950">$17,096 - $11,397</h4>
+          <h4 class="text-amber-950 font-semibold">Average per video</h4>
+        </div>
+      </div>
+      <!-- last row  -->
+      <div class="bg-slate-100 w-auto rounded-3xl pr-0 min-[674px]:pr-4 mb-4 flex justify-between md:flex-row flex-wrap">
+        <!-- first col  -->
+        <div
+          class="col-f-l border min-[674px]:w-72 w-full rounded-3xl mr-0 min-[674px]:mr-3 h-72 flex flex-col justify-evenly items-center">
+          <h4 class="font-bold text-amber-950">Digital Product Sales</h4>
+          <div>
+            <h4 class="font-bold text-2xl text-center text-amber-950">
+              $17,096 - $11,397
+            </h4>
+            <h4 class="text-amber-950 font-semibold text-center">
+              Average per video
+            </h4>
+          </div>
+          <div class="flex justify-center items-center">
+            <a href="https://accounts.theleap.co/signup" class="text-amber-950 text-center hover:text-amber-900">
+              <span class="mr-1 border-b border-amber-950 hover:border-amber-900 font-semibold">
+                Try The Leap to create your digital product
+                <i class="fas fa-arrow-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <!-- last 2nd column  -->
+        <div class="min-[674px]:w-72 rounded-3xlmx-3 h-72 pt-3 flex flex-col justify-evenly items-center w-full">
+          <div>
+            <h3 class="font-bold text-amber-950 sm:px-0 px-2">
+              Why selling digital products is a game changer for creators:
+            </h3>
+          </div>
+          <div>
+            <p class="text-amber-950">💰︎ Passive income stream</p>
+            <p class="text-amber-950">
+              😌 Low-effort and low-cost production
+            </p>
+            <p class="text-amber-950">📲 No shipping logistics required</p>
+            <p class="text-amber-950">📶 Simple scalability</p>
+            <p class="text-amber-950">🌍 Global sales</p>
+          </div>
+
+          <div class="mt-3 mb-3 w-full px-3">
+            <button class="font-bold w-full rounded-3xl py-2 calculate border border-slate-900">
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h1>Layout 3 </h1>
+    <!-- Layout 3  -->
+     <div class="max-w-2xl border m-3 rounded w-auto border-slate-500 px-4 pt-5">
+      <!-- header line  -->
+      <div>
+        <p class="text-center text-xl p-0 text-amber-950 font-semibold">
+          Calculate the earning potential of your
+          <span id="socialMedia"><select id="socialMediaSelect"
+              class="rounded-3xl text-center border text-base text-amber-950 font-bold">
+               <option class="text-amber-950" value="instagram">Instagram</option>
+               <option class="text-amber-950" value="youtube">YouTube</option>
+               <option class="text-amber-950" value="tiktok">TikTok</option>
+            </select></span>
+          account
+        </p>
+      </div>
+      <!-- entry button line  -->
+      <div class="flex justify-center items-center mt-2">
+        <span class="font-bold text-amber-950">Manual Entry</span>
+        <span class="mx-3">
+          <input type="radio" id="toggle5" class="hidden" name="toggle5" />
+          <input type="radio" id="toggle6" class="hidden" name="toggle6" />
+          <label for="toggle_layout1" class="flex items-center cursor-pointer"
+            onclick="toggleButton('toggle5', 'toggle6','slider4')">
+            <!-- Visible toggle button -->
+            <div class="bg-gray-300 w-9 h-5 rounded-full relative">
+              <!-- Slider -->
+              <div id="slider4"
+                class="absolute slider_layout bg-amber-950 w-4 h-4 rounded-full shadow-md transform transition-transform duration-300">
+              </div>
+            </div>
+          </label>
+        </span>
+        <span class="text-sm text-slate-400">Account Analysis</span>
+      </div>
+      <!-- provide metric h2  -->
+      <div class="mt-2">
+        <h2 class="text-amber-950 text-lg font-serif">
+          Provide the following account metrics:
+        </h2>
+      </div>
+      <!-- 3 column  -->
+      <div class="mt-2 flex flex-wrap justify-center min-[670px]:justify-between md:flex-row">
+      
+        <!-- Followers  -->
+        <div class="flex flex-col  w-full mt-1 mx-2">
+          <div class="flex items-center">
+            <span class="mr-1  "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                strokeWidth="{1.5}" stroke="currentColor"class="w-5 text-amber-950">
+                <path strokeLinecap="round" strokeLinejoin="round"
+                  d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+              </svg>
+            </span>
+            <h3 class="text-amber-950 font-bold">Followers</h3>
+            <span class="ml-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="{1.5}"
+                stroke="currentColor"class="w-5 text-amber-950">
+                <path strokeLinecap="round" strokeLinejoin="round"
+                  d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+              </svg>
+            </span>
+          </div>
+          <div class="mt-1">
+            <input type="text" name="followers" id="followers" class="border-amber-950 border rounded-3xl p-1 w-full" />
+          </div>
+        </div>
+     
+      </div>
+      <!-- calculate button  -->
+      <div class="mt-3 mb-3">
+        <button class="font-bold w-full rounded-3xl py-2 calculate border border-slate-900">
+          Calculate
+        </button>
+      </div>
+      <!-- sub heading 2 -->
+      <div class="mt-2">
+         <h2 class="text-amber-950 text-lg font-serif">
+          Estimated Revenue Potential by Source:
+        </h2>
+      </div>
+      <!-- 2 box  -->
+      <div class="flex justify-between flex-wrap items-center">
+        <div
+          class="rounded-3xl program justify-around items-center flex flex-col py-3  w-full mx-1 my-2">
+          <h4 class="font-bold text-amber-950">
+            SPONSORSHIP/BRAND DEALS
+          </h4>
+          <h4 class="font-bold text-2xl text-center text-amber-950">$295,098 - $442,646</h4>
+          <h4 class="text-amber-950 font-semibold">Average per video</h4>
+        </div>
+         
+      </div>
+      <!-- last row  -->
+      <div class="bg-slate-100 w-auto rounded-3xl pr-0 min-[674px]:pr-4 mb-4 flex justify-between md:flex-row flex-wrap">
+        <!-- first col  -->
+        <div
+          class="col-f-l border min-[674px]:w-72 w-full rounded-3xl mr-0 min-[674px]:mr-3 h-72 flex flex-col justify-evenly items-center">
+          <h4 class="font-bold text-amber-950">Digital Product Sales</h4>
+          <div>
+            <h4 class="font-bold text-2xl text-center text-amber-950">
+              $17,096,233 - $11,397,232 
+            </h4>
+            <h4 class="text-amber-950 font-semibold text-center">
+              Average per month
+            </h4>
+          </div>
+          <div class="flex justify-center items-center">
+            <a href="https://accounts.theleap.co/signup" class="text-amber-950 text-center hover:text-amber-900">
+              <span class="mr-1 border-b border-amber-950 hover:border-amber-900 font-semibold">
+                Try The Leap to create your digital product
+                <i class="fas fa-arrow-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <!-- last 2nd column  -->
+        <div class="min-[674px]:w-72 rounded-3xlmx-3 h-72 pt-3 flex flex-col justify-evenly items-center w-full">
+          <div>
+            <h3 class="font-bold text-amber-950 sm:px-0 px-2">
+              Why selling digital products is a game changer for creators:
+            </h3>
+          </div>
+          <div>
+            <p class="text-amber-950">💰︎ Passive income stream</p>
+            <p class="text-amber-950">
+              😌 Low-effort and low-cost production
+            </p>
+            <p class="text-amber-950">📲 No shipping logistics required</p>
+            <p class="text-amber-950">📶 Simple scalability</p>
+            <p class="text-amber-950">🌍 Global sales</p>
+          </div>
+
+          <div class="mt-3 mb-3 w-full px-3">
+            <button class="font-bold w-full rounded-3xl py-2 calculate border border-slate-900">
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h1>Layout 4 </h1>
+    <!-- Layout 4  -->
+     <div class="max-w-2xl border m-3 rounded w-auto border-slate-500 px-4 pt-5">
+      <!-- header line  -->
+      <div>
+        <p class="text-center text-xl p-0 text-amber-950 font-semibold">
+          Calculate the earning potential of your
+          <span id="socialMedia"><select id="socialMediaSelect"
+              class="rounded-3xl text-center border text-base text-amber-950 font-bold">
+               <option class="text-amber-950" value="youtube">YouTube</option>
+               <option class="text-amber-950" value="instagram">Instagram</option>
+               <option class="text-amber-950" value="tiktok">TikTok</option>
+            </select></span>
+          account
+        </p>
+      </div>
+      <!-- entry button line  -->
+      <div class="flex justify-center items-center mt-2">
+        <span class="font-bold text-amber-950">Manual Entry</span>
+        <span class="mx-3">
+          <input type="radio" id="toggle7" class="hidden" name="toggle7" />
+          <input type="radio" id="toggle8" class="hidden" name="toggle8" />
+          <label for="toggle_layout1" class="flex items-center cursor-pointer"
+            onclick="toggleButton('toggle7', 'toggle8','slider5')">
+            <!-- Visible toggle button -->
+            <div class="bg-gray-300 w-9 h-5 rounded-full relative">
+              <!-- Slider -->
+              <div id="slider5"
+                class="absolute slider_layout bg-amber-950 w-4 h-4 rounded-full shadow-md transform transition-transform duration-300">
+              </div>
+            </div>
+          </label>
+        </span>
+        <span class="text-sm text-slate-400">Account Analysis</span>
+      </div>
+      <!-- provide metric h2  -->
+      <div class="mt-2">
+        <h2 class="text-amber-950 text-lg font-serif">
+          Provide the following account metrics:
+        </h2>
+      </div>
+      <!-- 3 column  -->
+      <div class="mt-2 flex flex-wrap justify-center min-[670px]:justify-between md:flex-row">
+      
+        <!-- instagram user name  -->
+        <div class="flex flex-col  w-full mt-1 mx-2">
+      
+          <div class="mt-1 flex flex-row justify-center">
+            <input type="text" placeholder="Enter Instagram username" name="followers" id="followers" class="border-amber-950 border font-bold text-amber-950 rounded-l-3xl p-2 px-5 w-3/4  " />
+            <button class="font-bold border-l-0  rounded-r-3xl w-1/5 py-2 calculate border border-amber-950 ">
+              Submit
+            </button>
+          </div>
+        </div>
+     
+      </div>
+     
+      <!-- sub heading 2 -->
+      <div class="mt-2">
+         <h2 class="text-amber-950 text-lg font-serif">
+          Estimated Revenue Potential by Source:
+        </h2>
+      </div>
+      <!-- profile showing  -->
+      <div class="mt-4 mb-3 flex justify-between pr-6 min-[534px]:flex-row flex-col ">
+        <div class="flex min-[534px]:justify-start justify-between   w-auto items-center ">
+          <div class="w-24 h-24  ">
+            <img src="https://wi.wallpapertip.com/wsimgs/172-1722207_photo-wallpaper-girl-brown-hair-photo-blue-eyes.jpg" alt=""
+            class="w-24 h-24 rounded-full object-cover"
+            >
+          </div>
+          <!-- name suscribers  -->
+          <div class="ml-5 ">
+            <h2 class="text-amber-950 font-bold text-xl text-right">Kim Kardashian</h2>
+            <h3 class="text-amber-950 font-semibold text-base text-right min-[534px]:text-left">Suscribers </h3>
+            <h3 class="text-amber-950 font-bold text-lg text-right min-[534px]:text-left">2,000,00 </h3>
+          </div>
+        </div>
+        <!-- 2nd col   -->
+        <div class="  justify-end flex  flex-col min-[534px]:mt-0 mt-2 ">
+          <h4 class="text-amber-950 font-semibold text-base text-left min-[534px]:text-left">Total Videos</h4>
+          <h5 class="text-amber-950 font-bold  text-base text-left min-[534px]:text-left">157</h5>
+        </div>
+        <!-- 3rd col   -->
+        <div class=" justify-end flex  flex-col ">
+          <h4 class="text-amber-950 font-semibold text-base text-left min-[534px]:text-left">Total Views</h4>
+          <h5 class="text-amber-950 font-bold  text-base text-left min-[534px]:text-left">157,343,233</h5>
+        </div>
+      </div>
+
+      <!-- 2 box  -->
+      <div class="flex justify-between flex-wrap items-center">
+        <div
+          class="rounded-3xl program justify-around items-center flex flex-col py-3 min-[674px]:w-72 w-full mx-1 my-2">
+          <h4 class="font-bold text-amber-950">
+           YOUTUBE AD REVENUE
+          </h4>
+          <h4 class="font-bold text-2xl text-center text-amber-950">$17,096 - $11,397</h4>
+          <h4 class="text-amber-950 font-semibold">Average per video</h4>
+        </div>
+        <div class="rounded-3xl deals justify-around items-center flex flex-col py-3 min-[674px]:w-72 w-full mx-1 my-2">
+          <h4 class="font-bold text-amber-950">SPONSORSHIP/BRAND DEALS</h4>
+          <h4 class="font-bold text-2xl text-center text-amber-950">$17,096 - $11,397</h4>
+          <h4 class="text-amber-950 font-semibold">Average per video</h4>
+        </div>
+      </div>
+      <!-- last row  -->
+      <div class="bg-slate-100 w-auto rounded-3xl pr-0 min-[674px]:pr-4 mb-4 flex justify-between md:flex-row flex-wrap">
+        <!-- first col  -->
+        <div
+          class="col-f-l border min-[674px]:w-72 w-full rounded-3xl mr-0 min-[674px]:mr-3 h-72 flex flex-col justify-evenly items-center">
+          <h4 class="font-bold text-amber-950">Digital Product Sales</h4>
+          <div>
+            <h4 class="font-bold text-2xl text-center text-amber-950">
+              $17,096 - $11,397
+            </h4>
+            <h4 class="text-amber-950 font-semibold text-center">
+              Average per month
+            </h4>
+          </div>
+          <div class="flex justify-center items-center">
+            <a href="https://accounts.theleap.co/signup" class="text-amber-950 text-center hover:text-amber-900">
+              <span class="mr-1 border-b border-amber-950 hover:border-amber-900 font-semibold">
+                Try The Leap to create your digital product
+                <i class="fas fa-arrow-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <!-- last 2nd column  -->
+        <div class="min-[674px]:w-72 rounded-3xlmx-3 h-72 pt-3 flex flex-col justify-evenly items-center w-full">
+          <div>
+            <h3 class="font-bold text-amber-950 sm:px-0 px-2">
+              Why selling digital products is a game changer for creators:
+            </h3>
+          </div>
+          <div>
+            <p class="text-amber-950">💰︎ Passive income stream</p>
+            <p class="text-amber-950">
+              😌 Low-effort and low-cost production
+            </p>
+            <p class="text-amber-950">📲 No shipping logistics required</p>
+            <p class="text-amber-950">📶 Simple scalability</p>
+            <p class="text-amber-950">🌍 Global sales</p>
+          </div>
+
+          <div class="mt-3 mb-3 w-full px-3">
+            <button class="font-bold w-full rounded-3xl py-2 calculate border border-slate-900">
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1>Layout 5 </h1>
+    <!-- Layout 5  -->
+     <div class="max-w-2xl border m-3 rounded w-auto border-slate-500 px-4 pt-5">
+      <!-- header line  -->
+      <div>
+        <p class="text-center text-xl p-0 text-amber-950 font-semibold">
+          Calculate the earning potential of your
+          <span id="socialMedia"><select id="socialMediaSelect"
+              class="rounded-3xl text-center border text-base text-amber-950 font-bold">
+               <option class="text-amber-950" value="instagram">Instagram</option>
+               <option class="text-amber-950" value="youtube">YouTube</option>
+               <option class="text-amber-950" value="tiktok">TikTok</option>
+            </select></span>
+          account
+        </p>
+      </div>
+      <!-- entry button line  -->
+      <div class="flex justify-center items-center mt-2">
+        <span class="font-bold text-amber-950">Manual Entry</span>
+        <span class="mx-3">
+          <input type="radio" id="toggle9" class="hidden" name="toggle9" />
+          <input type="radio" id="toggle10" class="hidden" name="toggle10" />
+          <label for="toggle_layout1" class="flex items-center cursor-pointer"
+            onclick="toggleButton('toggle9', 'toggle10','slider6')">
+            <!-- Visible toggle button -->
+            <div class="bg-gray-300 w-9 h-5 rounded-full relative">
+              <!-- Slider -->
+              <div id="slider6"
+                class="absolute slider_layout bg-amber-950 w-4 h-4 rounded-full shadow-md transform transition-transform duration-300">
+              </div>
+            </div>
+          </label>
+        </span>
+        <span class="text-sm text-slate-400">Account Analysis</span>
+      </div>
+      <!-- provide metric h2  -->
+      <div class="mt-2">
+        <h2 class="text-amber-950 text-lg font-serif">
+          Enter your Instagram account name
+        </h2>
+      </div>
+      <!-- 3 column  -->
+      <div class="mt-2 flex flex-wrap justify-center min-[670px]:justify-between md:flex-row">
+      
+        <!-- instagram user name  -->
+        <div class="flex flex-col  w-full mt-1 mx-2">
+      
+          <div class="mt-1 flex flex-row justify-center">
+            <input type="text" placeholder="Enter Instagram username" name="followers" id="followers" class="border-amber-950 border text-amber-95- font-semibold  rounded-l-3xl p-2 px-5 w-3/4  " />
+            <button class="font-bold border-l-0  rounded-r-3xl w-1/5 py-2 calculate border border-amber-950">
+              Submit
+            </button>
+          </div>
+        </div>
+     
+      </div>
+     
+      <!-- sub heading 2 -->
+      <div class="mt-2">
+         <h2 class="text-amber-950 text-lg font-serif">
+          Estimated Revenue Potential by Source:
+        </h2>
+      </div>
+      <!-- profile showing  -->
+      <div class="mt-4 mb-3 flex justify-between pr-6 min-[534px]:flex-row flex-col ">
+        <div class="flex min-[534px]:justify-start justify-between   w-auto items-center ">
+          <div class="w-24 h-24  ">
+            <img src="https://wi.wallpapertip.com/wsimgs/172-1722207_photo-wallpaper-girl-brown-hair-photo-blue-eyes.jpg" alt=""
+            class="w-24 h-24 rounded-full object-cover"
+            >
+          </div>
+          <!-- name suscribers  -->
+          <div class="ml-5 ">
+            <h2 class="text-amber-950 font-bold text-xl text-left">Kim Kardashian</h2>
+            <h3 class="text-amber-950 font-semibold text-base text-right min-[534px]:text-left">Followers </h3>
+            <h3 class="text-amber-950 font-bold text-lg text-right min-[534px]:text-left">2,000,00 </h3>
+          </div>
+        </div>
+        <!-- 2nd col   -->
+        <div class="  justify-evenly flex  flex-col min-[534px]:mt-0 mt-2 ">
+          <h2 class="text-amber-950 font-bold text-xl text-left">@Kim Kardashian</h2>
+          <h4 class="text-amber-950 font-semibold text-base text-left min-[534px]:text-left">Following</h4>
+          <h5 class="text-amber-950 font-bold  text-base text-left min-[534px]:text-left">157</h5>
+        </div>
+        <!-- 3rd col   -->
+        <div class=" justify-end flex  flex-col ">
+          <h4 class="text-amber-950 font-semibold text-base text-left min-[534px]:text-left mb-1">Total Media</h4>
+          <h5 class="text-amber-950 font-bold  text-base text-left min-[534px]:text-left">157,343,233</h5>
+        </div>
+      </div>
+
+      <!-- 2 box  -->
+      <div class="flex justify-between flex-wrap items-center">
+        <div
+          class="rounded-3xl program justify-around items-center flex flex-col py-3  w-full mx-1 my-2">
+          <h4 class="font-bold text-amber-950">
+           SPONSORSHIP/BRAND DEALS
+          </h4>
+          <h4 class="font-bold text-2xl text-center text-amber-950">$295,098 - $442,646</h4>
+          <h4 class="text-amber-950 font-semibold">Average per video</h4>
+        </div>
+         
+      </div>
+      <!-- last row  -->
+      <div class="bg-slate-100 w-auto rounded-3xl pr-0 min-[674px]:pr-4 mb-4 flex justify-between md:flex-row flex-wrap">
+        <!-- first col  -->
+        <div
+          class="col-f-l border min-[674px]:w-72 w-full rounded-3xl mr-0 min-[674px]:mr-3 h-72 flex flex-col justify-evenly items-center">
+          <h4 class="font-bold text-amber-950">Digital Product Sales</h4>
+          <div>
+            <h4 class="font-bold text-2xl text-center text-amber-950">
+              $17,096,234 - $11,397,232
+            </h4>
+            <h4 class="text-amber-950 font-semibold text-center">
+              Average per month
+            </h4>
+          </div>
+          <div class="flex justify-center items-center">
+            <a href="https://accounts.theleap.co/signup" class="text-amber-950 text-center hover:text-amber-900">
+              <span class="mr-1 border-b border-amber-950 hover:border-amber-900 font-semibold">
+                Try The Leap to create your digital product
+                <i class="fas fa-arrow-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <!-- last 2nd column  -->
+        <div class="min-[674px]:w-72 rounded-3xlmx-3 h-72 pt-3 flex flex-col justify-evenly items-center w-full">
+          <div>
+            <h3 class="font-bold text-amber-950 sm:px-0 px-2">
+              Why selling digital products is a game changer for creators:
+            </h3>
+          </div>
+          <div>
+            <p class="text-amber-950">💰︎ Passive income stream</p>
+            <p class="text-amber-950">
+              😌 Low-effort and low-cost production
+            </p>
+            <p class="text-amber-950">📲 No shipping logistics required</p>
+            <p class="text-amber-950">📶 Simple scalability</p>
+            <p class="text-amber-950">🌍 Global sales</p>
+          </div>
+
+          <div class="mt-3 mb-3 w-full px-3">
+            <button class="font-bold w-full rounded-3xl py-2 calculate border border-slate-900">
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1>Layout 6 </h1>
+    <!-- Layout 6  -->
+     <div class="max-w-2xl border m-3 rounded w-auto border-slate-500 px-4 pt-5">
+      <!-- header line  -->
+      <div>
+        <p class="text-center text-xl p-0 text-amber-950 font-semibold">
+          Calculate the earning potential of your
+          <span id="socialMedia"><select id="socialMediaSelect"
+              class="rounded-3xl text-center border text-base text-amber-950 font-bold">
+               <option class="text-amber-950" value="tiktok">TikTok</option>
+               <option class="text-amber-950" value="instagram">Instagram</option>
+               <option class="text-amber-950" value="youtube">YouTube</option>
+            </select></span>
+          account
+        </p>
+      </div>
+      <!-- entry button line  -->
+      <div class="flex justify-center items-center mt-2">
+        <span class="font-bold text-amber-950">Manual Entry</span>
+        <span class="mx-3">
+          <input type="radio" id="toggle11" class="hidden" name="toggle11" />
+          <input type="radio" id="toggle12" class="hidden" name="toggle12" />
+          <label for="toggle_layout1" class="flex items-center cursor-pointer"
+            onclick="toggleButton('toggle11', 'toggle12','slider7')">
+            <!-- Visible toggle button -->
+            <div class="bg-gray-300 w-9 h-5 rounded-full relative">
+              <!-- Slider -->
+              <div id="slider7"
+                class="absolute slider_layout bg-amber-950 w-4 h-4 rounded-full shadow-md transform transition-transform duration-300">
+              </div>
+            </div>
+          </label>
+        </span>
+        <span class="text-sm text-slate-400">Account Analysis</span>
+      </div>
+      <!-- provide metric h2  -->
+      <div class="mt-2">
+        <h2 class="text-amber-950 text-lg font-serif">
+          Enter your TikTok account name
+        </h2>
+      </div>
+      <!-- 3 column  -->
+      <div class="mt-2 flex flex-wrap justify-center min-[670px]:justify-between md:flex-row">
+      
+        <!-- instagram user name  -->
+        <div class="flex flex-col  w-full mt-1 mx-2">
+      
+          <div class="mt-1 flex flex-row justify-center">
+            <input type="text" placeholder="Enter TikTok username" name="followers" id="followers" class="border-amber-950 border  rounded-l-3xl p-2 px-5 w-3/4  " />
+            <button class="font-bold border-l-0  rounded-r-3xl w-1/5 py-2 calculate border border-slate-900">
+              Submit
+            </button>
+          </div>
+        </div>
+     
+      </div>
+     
+   
+      <!-- profile showing  -->
+      <div class="mt-4 mb-3 flex justify-between pr-6 min-[534px]:flex-row flex-col ">
+        <div class="flex min-[534px]:justify-start justify-between   w-auto items-center ">
+          <div class="w-24 h-24  ">
+            <img src="https://wi.wallpapertip.com/wsimgs/172-1722207_photo-wallpaper-girl-brown-hair-photo-blue-eyes.jpg" alt=""
+            class="w-24 h-24 rounded-full object-cover"
+            >
+          </div>
+          <!-- name suscribers  -->
+          <div class="ml-5 ">
+            <h2 class="text-amber-950 font-bold text-xl text-left">Kim Kardashian</h2>
+            <h3 class="text-amber-950 font-semibold text-base text-right min-[534px]:text-left">Followers </h3>
+            <h3 class="text-amber-950 font-bold text-lg text-right min-[534px]:text-left">2,000,00 </h3>
+          </div>
+        </div>
+        <!-- 2nd col   -->
+        <div class="  justify-evenly flex  flex-col min-[534px]:mt-0 mt-2 ">
+          <h2 class="text-amber-950 font-bold text-xl text-left">@Kim Kardashian</h2>
+          <h4 class="text-amber-950 font-semibold text-base text-left min-[534px]:text-left">Likes</h4>
+          <h5 class="text-amber-950 font-bold  text-base text-left min-[534px]:text-left">157,232,32</h5>
+        </div>
+        <!-- 3rd col   -->
+        <div class=" justify-end flex  flex-col ">
+          
+        </div>
+      </div>
+   <!-- sub heading 2 -->
+   <div class="mt-2">
+    <h2 class="text-amber-950 text-lg font-serif">
+      Estimated Revenue Potential by Source:
+    </h2>
+  </div>
+      <!-- 2 box  -->
+      <div class="flex justify-between flex-wrap items-center">
+        <div
+          class="rounded-3xl program justify-around items-center flex flex-col py-3 min-[674px]:w-72 w-full mx-1 my-2">
+          <h4 class="font-bold text-amber-950">
+            CREATIVITY PROGRAM EARNINGS
+          </h4>
+          <h4 class="font-bold text-2xl text-center text-amber-950">$3,859</h4>
+          <h4 class="text-amber-950 font-semibold">Average per video</h4>
+        </div>
+        <div class="rounded-3xl deals justify-around items-center flex flex-col py-3 min-[674px]:w-72 w-full mx-1 my-2">
+          <h4 class="font-bold text-amber-950">SPONSORSHIP/BRAND DEALS</h4>
+          <h4 class="font-bold text-2xl text-center text-amber-950">$17,096 - $11,397</h4>
+          <h4 class="text-amber-950 font-semibold">Average per video</h4>
+        </div>
+      </div>
+      <!-- last row  -->
+      <div class="bg-slate-100 w-auto rounded-3xl pr-0 min-[674px]:pr-4 mb-4 flex justify-between md:flex-row flex-wrap">
+        <!-- first col  -->
+        <div
+          class="col-f-l border min-[674px]:w-72 w-full rounded-3xl mr-0 min-[674px]:mr-3 h-72 flex flex-col justify-evenly items-center">
+          <h4 class="font-bold text-amber-950">Digital Product Sales</h4>
+          <div>
+            <h4 class="font-bold text-2xl text-center text-amber-950">
+              $17,096 - $11,397
+            </h4>
+            <h4 class="text-amber-950 font-semibold text-center">
+              Average per month
+            </h4>
+          </div>
+          <div class="flex justify-center items-center">
+            <a href="https://accounts.theleap.co/signup" class="text-amber-950 text-center hover:text-amber-900">
+              <span class="mr-1 border-b border-amber-950 hover:border-amber-900 font-semibold">
+                Try The Leap to create your digital product
+                <i class="fas fa-arrow-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <!-- last 2nd column  -->
+        <div class="min-[674px]:w-72 rounded-3xlmx-3 h-72 pt-3 flex flex-col justify-evenly items-center w-full">
+          <div>
+            <h3 class="font-bold text-amber-950 sm:px-0 px-2">
+              Why selling digital products is a game changer for creators:
+            </h3>
+          </div>
+          <div>
+            <p class="text-amber-950">💰︎ Passive income stream</p>
+            <p class="text-amber-950">
+              😌 Low-effort and low-cost production
+            </p>
+            <p class="text-amber-950">📲 No shipping logistics required</p>
+            <p class="text-amber-950">📶 Simple scalability</p>
+            <p class="text-amber-950">🌍 Global sales</p>
+          </div>
+
+          <div class="mt-3 mb-3 w-full px-3">
+            <button class="font-bold w-full rounded-3xl py-2 calculate border border-slate-900">
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </body>
 <script>
-  function toggleButton() {
-    var checkbox = document.getElementById("toggle1");
-    var checkbox2 = document.getElementById("toggle2");
+  function toggleButton(checkbox, checkbox2,slider) {
+    var checkbox = document.getElementById(checkbox);
+    var checkbox2 = document.getElementById(checkbox2);
 
-    var slider = document.getElementById("slider");
+    var slider = document.getElementById(slider);
     var toggleText = document.getElementById("toggleText");
     console.log(checkbox.checked);
 
